@@ -23,6 +23,7 @@ public partial class GiaoVien_DetailsExe : System.Web.UI.Page
         var lop = db.LopHocs.Where(m => m.MaLop == bt.MaLop).FirstOrDefault();
         TenLop = lop.TenLop;
         MaLop = lop.MaLop;
-        SV = bainop.NguoiDung.HoLot + bainop.NguoiDung.Ten;
+        SV = UID;
+        Ten = bainop.NguoiDung.HoLot + bainop.NguoiDung.Ten;
     }
 }
