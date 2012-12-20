@@ -7,13 +7,13 @@
     <title>Nộp Bài về nhà</title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link href="Content/Site.css" rel="stylesheet" />
-    <link href="Content/Menu/menu.css" rel="stylesheet" />
-    <script src="Scripts/jquery.js"></script>
-    <script src="Scripts/Menu/menu.js"></script>
-    <script src="Scripts/Menu/jquery.lavalamp.js"></script>
-    <script src="Scripts/Menu/jquery.color.js"></script>
-    <script src="Scripts/Menu/jquery.easing.js"></script>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/Menu/menu.css" rel="stylesheet" />
+    <script src="<%= Page.ResolveUrl("~/Scripts/jquery.js") %>"></script>
+    <script src="<%= Page.ResolveUrl("~/Scripts/Menu/menu.js") %>"></script>
+    <script src="<%= Page.ResolveUrl("~/Scripts/Menu/jquery.lavalamp.js") %>"></script>
+    <script src="<%= Page.ResolveUrl("~/Scripts/Menu/jquery.color.js") %>"></script>
+    <script src="<%= Page.ResolveUrl("~/Scripts/Menu/jquery.easing.js") %>"></script>
 </head>
 <body>
     <div class="page">
@@ -32,9 +32,9 @@
                     </li>
 
 
-                    <li class="last"><a href="#" class="parent"><span>Giáo viên</span></a>
+                    <li class="last"><a href="/GiaoVien/Index.aspx" class="parent"><span>Giáo viên</span></a>
                         <ul>
-                            <li><a href="#"><span>Danh sách lớp</span></a></li>
+                            <li><a href="/GiaoVien/Details.aspx"><span>Danh sách lớp</span></a></li>
                         </ul>                            
                     </li>
                 </ul>
