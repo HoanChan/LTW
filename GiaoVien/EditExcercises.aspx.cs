@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -14,19 +15,7 @@ public partial class EditExcercises : System.Web.UI.Page
     public string MaBT { get; set; }
     protected void Page_Load(object sender, EventArgs e)
     {
-        /*string ID = Request.QueryString["ID"];
-        SqlConnection cnn = new SqlConnection(ConfigurationManager.ConnectionStrings["NopBaiTapVeNhaConnectionString"].ConnectionString);
-        cnn.Open();
-        SqlCommand cmd = cnn.CreateCommand();
-        cmd.CommandText = "select * from lophoc where malop = '" + ID + "'";
-        var data = cmd.ExecuteReader();
-        data.Read();
-        TenLop = data["TenLop"].ToString();
-        MaLop = data["MaLop"].ToString();
-        cnn.Close();*/
-
         int ID = int.Parse(Request.QueryString["ID"]);
-        
         MyContextDataContext db = new MyContextDataContext();
         var bt = db.BaiTaps.Where(m => m.Ma == ID).FirstOrDefault();
         MaBT = bt.Ma.ToString();
@@ -36,7 +25,20 @@ public partial class EditExcercises : System.Web.UI.Page
 
     }
 
-    protected void btnUpdate_Click(object senger,EventArgs e)
+    protected void btnUpdate_Click(object senger, EventArgs e)
     {
+        int ID = int.Parse(Request.QueryString["ID"]);
+        MyContextDataContext db = new MyContextDataContext();
+        if (txtHanNop.Text != "" && Regex.IsMatch(txtHanNop.Text, "^(?<Day>\\d{1,2})/(?<Month>\\d{1,2})/(?<Year>(?:\\d{4}|\\d{2}))$"))
+        {
+            lblKQ.Text = "Đề nghị nhập ngày cho đúng";
+            return;
+        }
+        BaiTap bt = db.BaiTaps.Where(m => m.Ma == ID).FirstOrDefault();
+        bt.Ten = txtTenBT.Text;
+        bt.MoTa = txtMoTa.Text;
+        var Match = Regex.Match(txtHanNop.Text, "^(?<Day>\\d{1,2})/(?<Month>\\d{1,2})/(?<Year>(?:\\d{4}|\\d{2}))$");
+        bt.HanNop = new DateTime(int.Parse(Match.Groups["Day"].Value), int.Parse(Match.Groups["Month"].Value), int.Parse(Match.Groups["Year"].Value));
+        db.SubmitChanges();
     }
 }
