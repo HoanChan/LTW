@@ -14,7 +14,9 @@
                 <asp:BoundField HeaderText="Tên lớp" DataField="TenLop" />
                 <asp:BoundField HeaderText="Giáo viên" DataField="GiaoVien" />
                 <asp:BoundField HeaderText="Mô tả" DataField="MoTa"/>
-                 <asp:CommandField ShowSelectButton="true" />
+                
+                
+                
             </Columns>
             <FooterStyle BackColor="White" ForeColor="#000066" />
             <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
