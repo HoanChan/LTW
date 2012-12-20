@@ -7,12 +7,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class GiaoVien_EditExercises : System.Web.UI.Page
+public partial class EditExcercises : System.Web.UI.Page
 {
     public string TenLop { get; set; }
+    public string MaLop { get; set; }
+    public string MaBT { get; set; }
     protected void Page_Load(object sender, EventArgs e)
     {
-        string ID = Request.QueryString["ID"];
+        /*string ID = Request.QueryString["ID"];
         SqlConnection cnn = new SqlConnection(ConfigurationManager.ConnectionStrings["NopBaiTapVeNhaConnectionString"].ConnectionString);
         cnn.Open();
         SqlCommand cmd = cnn.CreateCommand();
@@ -20,6 +22,21 @@ public partial class GiaoVien_EditExercises : System.Web.UI.Page
         var data = cmd.ExecuteReader();
         data.Read();
         TenLop = data["TenLop"].ToString();
-        cnn.Close();
+        MaLop = data["MaLop"].ToString();
+        cnn.Close();*/
+
+        int ID = int.Parse(Request.QueryString["ID"]);
+        
+        MyContextDataContext db = new MyContextDataContext();
+        var bt = db.BaiTaps.Where(m => m.Ma == ID).FirstOrDefault();
+        MaBT = bt.Ma.ToString();
+        txtTenBT.Text = bt.Ten.ToString();
+        txtMoTa.Text = bt.MoTa.ToString();
+        txtHanNop.Text = bt.HanNop.ToString();
+
+    }
+
+    protected void btnUpdate_Click(object senger,EventArgs e)
+    {
     }
 }
