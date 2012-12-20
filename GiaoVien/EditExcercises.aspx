@@ -6,6 +6,9 @@
     <b>Sử thông tin bài tập lớp: <% Response.Write(TenLop); %> (<%Response.Write(MaLop); %></b>
     <p>Mã bài tập: <b><%Response.Write(MaBT); %></b></p>
     <p>Tên bài tập: <asp:TextBox ID="txtTenBT" runat="server"></asp:TextBox></p>
+    < <p>
+        <asp:Label ID="lblKQ" runat="server"></asp:Label>
+    </p>
     <p>Mô tả:</p>
     <p>
         <asp:TextBox ID="txtMoTa" runat="server" Height="80px" TextMode="MultiLine" Width="233px" HtmlEncodeFormatString="False" HtmlEncode="False"></asp:TextBox>
