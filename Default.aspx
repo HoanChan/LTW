@@ -10,7 +10,7 @@
             <asp:BoundField DataField="tenlop" HeaderText="Tên Lớp" />
             <asp:BoundField DataField="giaovien" HeaderText="Giáo Viên" />
             <asp:BoundField DataField="mota" HeaderText="Mô Tả" />
-            <asp:HyperLinkField DataNavigateUrlFields="malop" DataNavigateUrlFormatString="/ClassDetails.aspx?ID={0}" HeaderText="Chi tiết" Text="Chi tiết" />
+            <asp:HyperLinkField DataNavigateUrlFields="malop" DataNavigateUrlFormatString="/Details.aspx?ID={0}" HeaderText="Chi tiết" Text="Chi tiết" />
         </Columns>
         <FooterStyle BackColor="White" ForeColor="#000066" />
         <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />

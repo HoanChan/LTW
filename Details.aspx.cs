@@ -16,15 +16,13 @@ public partial class ClassDetails : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         string ID = Request.QueryString["ID"];
-        SqlConnection cnn = new SqlConnection(ConfigurationManager.ConnectionStrings["NopBaiTapVeNhaConnectionString"].ConnectionString);
-        cnn.Open();
-        SqlCommand cmd = cnn.CreateCommand();
-        cmd.CommandText = "select * from lophoc where malop = '" + ID + "'";
-        var data = cmd.ExecuteReader();
-        data.Read();
-        TenLop = data["TenLop"].ToString();
-        GiaoVien = data["GiaoVien"].ToString();
-        MoTa = data["MoTa"].ToString();
-        cnn.Close();
+        var data = from m in (new MyContextDataContext()).LopHocs select m;
+        if (data.Count() > 0)
+        {
+            var Result = data.FirstOrDefault();
+            TenLop = Result.TenLop;
+            GiaoVien = Result.GiaoVien;
+            MoTa = Result.MoTa;
+        }
     }
 }
