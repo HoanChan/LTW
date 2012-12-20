@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="" title="Links"  description="">
+        <siteMapNode url="" title="Trang chủ"  description="" />
+        <siteMapNode url="" title="Đăng nhập"  description="" />
+        <siteMapNode url="" title="Sinh viên"  description="" >
+          <siteMapNode url="" title="Danh sách lớp"  description="" />
+        </siteMapNode>
+        <siteMapNode url="" title="Giáo viên"  description="" >
+            <siteMapNode url="" title="Danh sách lớp"  description="" />
+        </siteMapNode>
+    </siteMapNode>
+</siteMap>
