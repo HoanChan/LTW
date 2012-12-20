@@ -13,8 +13,8 @@
             <asp:BoundField DataField="MoTa" HeaderText="Mô tả" SortExpression="MoTa" HtmlEncode="False" HtmlEncodeFormatString="False" />
             <asp:BoundField DataField="HanNop" HeaderText="Hạn nộp" SortExpression="HanNop" />
             <asp:HyperLinkField DataNavigateUrlFields="ma" DataNavigateUrlFormatString="/AttackFiles.aspx?ID={0}" HeaderText="File đính kèm" Text="File đính kèm" />
-            <asp:HyperLinkField HeaderText="Sửa bài tập" DataNavigateUrlFields="ma" DataNavigateUrlFormatString="/EditExcercises.aspx?ID={0}" Text="Sửa bài tập" />
-            <asp:HyperLinkField HeaderText="Danh sách nộp bài" DataNavigateUrlFields="ma" DataNavigateUrlFormatString="/GiaoVien/FileList.aspx?ID={0}" Text="Danh sách nộp bài" />
+            <asp:HyperLinkField HeaderText="Sửa bài tập" DataNavigateUrlFields="Ma" DataNavigateUrlFormatString="/GiaoVien/EditExcercises.aspx?ID={0}" Text="Sửa bài tập" />
+            <asp:HyperLinkField HeaderText="Danh sách nộp bài" DataNavigateUrlFields="Ma" DataNavigateUrlFormatString="/GiaoVien/FileList.aspx?ID={0}" Text="Danh sách nộp bài" />
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NopBaiTapVeNhaConnectionString %>" SelectCommand="SELECT [Ten], [MoTa], [HanNop], [Ma] FROM [BaiTap] WHERE ([MaLop] = @MaLop)">
