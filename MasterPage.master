@@ -10,11 +10,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+        <div style="float: left; width: 190px;border:1px">
+                <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1">
+                      <RootNodeStyle ImageUrl="~/Contents/Folder.png" HorizontalPadding="10px" />
+                      <ParentNodeStyle ImageUrl="~/Contents/Folder.png" HorizontalPadding="10px" />
+                      <LeafNodeStyle ImageUrl="~/Contents/Folder.png" HorizontalPadding="10px" />
+                </asp:TreeView>
+        </div>
+        <div style="float: none; margin-left: 200px">
+            <asp:SiteMapPath ID="SiteMapPath1" runat="server">
+            </asp:SiteMapPath>
+            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+            </asp:ContentPlaceHolder>
+        </div>
     </form>
 </body>
 </html>
