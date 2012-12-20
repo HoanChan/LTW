@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="GiaoVien_Index" %>
+﻿<%@ Page Title="Giáo viên" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="GiaoVien_Index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -14,7 +14,7 @@
                 <asp:BoundField HeaderText="Tên lớp" DataField="TenLop" />
                 <asp:BoundField HeaderText="Giáo viên" DataField="GiaoVien" />
                 <asp:BoundField HeaderText="Mô tả" DataField="MoTa"/>
-                <asp:HyperLinkField DataNavigateUrlFields="ChiTiet" HeaderText="" Text="Chi tiết" />
+                 <asp:CommandField ShowSelectButton="true" />
             </Columns>
             <FooterStyle BackColor="White" ForeColor="#000066" />
             <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
