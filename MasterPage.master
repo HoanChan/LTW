@@ -24,7 +24,7 @@
             <div id="menu">
                 <ul class="menu">
                     <li><a href ="/Default.aspx"><span>Trang chủ</span></a></li>
-                    <li><a href ="#"><span>Đăng nhập</span></a></li>
+                    <li><a href ="/Login.aspx"><span>Đăng nhập</span></a></li>
                     <li><a href="#" class="parent"><span>Sinh viên</span></a>
                         <ul>
                             <li><a href="#"><span>Danh sách lớp</span></a></li>
