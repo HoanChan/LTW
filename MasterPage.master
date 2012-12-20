@@ -25,18 +25,30 @@
                 <ul class="menu">
                     <li><a href ="/Default.aspx"><span>Trang chủ</span></a></li>
                     <li><a href ="/Login.aspx"><span>Đăng nhập</span></a></li>
-                    <li><a href="#" class="parent"><span>Sinh viên</span></a>
-                        <ul>
-                            <li><a href="#"><span>Danh sách lớp</span></a></li>
-                        </ul>
-                    </li>
-
-
-                    <li class="last"><a href="/GiaoVien/Index.aspx" class="parent"><span>Giáo viên</span></a>
-                        <ul>
-                            <li><a href="/GiaoVien/Details.aspx"><span>Danh sách lớp</span></a></li>
-                        </ul>                            
-                    </li>
+                    <% if (Page.User.IsInRole("Admin"))
+                       {
+                           Response.Write(@"<li class='last'><a href='#' class='parent'><span>Admin</span></a>
+                                                <ul>
+                                                    <li><a href ='/Admin/CreateUsers.aspx'><span>Tạo Tài khoản</span></a></li>
+                                                </ul>
+                                            </li>");
+                       } %>
+                     <% if (Page.User.IsInRole("SinhVien"))
+                       {
+                           Response.Write(@"<li class='last'><a href='#' class='parent'><span>Sinh viên</span></a>
+                                                <ul>
+                                                    <li><a href='/SinhVien/Index.aspx'><span>Danh sách lớp</span></a></li>
+                                                </ul>
+                                            </li>");
+                       } %>
+                    <% if (Page.User.IsInRole("Giaovien"))
+                       {
+                           Response.Write(@"<li class='last'><a href='#' class='parent'><span>Giáo viên</span></a>
+                                                <ul>
+                                                    <li><a href='/GiaoVien/Index.aspx'><span>Danh sách lớp</span></a></li>
+                                                </ul>                            
+                                            </li>");
+                       } %>
                 </ul>
             </div>
         </header>

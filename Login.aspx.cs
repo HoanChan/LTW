@@ -43,5 +43,6 @@ public partial class Login : System.Web.UI.Page
         btnThoat.Visible = false;
         divLogin.Visible = true;
         lblThongBao.Text = "";
+        Response.Redirect("/Default.aspx");
     }
 }
