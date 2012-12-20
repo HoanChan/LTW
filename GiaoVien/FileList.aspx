@@ -11,7 +11,7 @@
     <asp:GridView runat="server" AutoGenerateColumns="False" DataKeyNames="Ma" DataSourceID="SqlDataSource1">
         <Columns>
             <asp:BoundField DataField="Ma" HeaderText="Mã nộp" />
-            <asp:BoundField DataField="Username" HeaderText="Sinh Viên" />
+            <asp:BoundField DataField="SV" HeaderText="Sinh Viên" />
             <asp:BoundField DataField="GioNop" HeaderText="Giờ nộp" />
             <asp:HyperLinkField DataNavigateUrlFields="FileLuu" DataNavigateUrlFormatString="/{0}" HeaderText="File Lưu" Text="Tải về" />
             <asp:BoundField DataField="GhiChu" HeaderText="Ghi Chú" />
@@ -19,7 +19,7 @@
         </Columns>
     </asp:GridView>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NopBaiTapVeNhaConnectionString %>" SelectCommand="SELECT Ma, MaBaiTap, Username, GioNop, FileLuu, GhiChu FROM BaiNop WHERE (MaBaiTap = @MaBT) AND (FileLuu = (SELECT MAX(FileLuu) AS Expr1 FROM BaiNop AS BaiNop_1 WHERE (MaBaiTap = @MaBT)))">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NopBaiTapVeNhaConnectionString %>" SelectCommand="SELECT BaiNop.Ma, BaiNop.MaBaiTap, (NguoiDung.HoLot + NguoiDung.Ten +'(' + BaiNop.Username + ')') as SV, BaiNop.Username, BaiNop.GioNop, BaiNop.FileLuu, BaiNop.GhiChu FROM BaiNop INNER JOIN NguoiDung ON BaiNop.Username = NguoiDung.Username WHERE (BaiNop.MaBaiTap = @MaBT) AND (BaiNop.FileLuu = (SELECT MAX(FileLuu) AS Expr1 FROM BaiNop AS BaiNop_1 WHERE (MaBaiTap = @MaBT)))">
         <SelectParameters>
             <asp:QueryStringParameter Name="MaBT" QueryStringField="ID" Type="String" />
         </SelectParameters>

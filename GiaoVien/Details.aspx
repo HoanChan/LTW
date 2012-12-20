@@ -3,9 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <p>Lớp: <b><% Response.Write(TenLop); %></b></p>
+    <p>Lớp: <b><% Response.Write(TenLop); %> (<%Response.Write(MaLop); %>)</b></p>
     <p>Giáo viên: <b><% Response.Write(GiaoVien); %></b></p>
     <p>Mô tả: <% Response.Write(MoTa); %></p>
+    <a href="/GiaoVien/CreateExercises.aspx?ID=<%Response.Write(MaLop); %>">Tạo bài tập mới</a>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Ma" DataSourceID="SqlDataSource1">
         <Columns>
             <asp:BoundField DataField="Ma" HeaderText="Mã" InsertVisible="False" ReadOnly="True" SortExpression="Ma" />

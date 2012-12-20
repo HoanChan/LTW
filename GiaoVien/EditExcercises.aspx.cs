@@ -29,7 +29,7 @@ public partial class EditExcercises : System.Web.UI.Page
     {
         int ID = int.Parse(Request.QueryString["ID"]);
         MyContextDataContext db = new MyContextDataContext();
-        if (txtHanNop.Text != "" && Regex.IsMatch(txtHanNop.Text, "^(?<Day>\\d{1,2})/(?<Month>\\d{1,2})/(?<Year>(?:\\d{4}|\\d{2}))$"))
+        if (txtHanNop.Text != "" && Regex.IsMatch(txtHanNop.Text, @"^(?<Day>[0-2]\d|[3][0-1])\/(?<Month>[0]\d|[1][0-2])\/(?<Year>(?:[2][01]|[1][6-9])\d{2})$"))
         {
             lblKQ.Text = "Đề nghị nhập ngày cho đúng";
             return;
@@ -37,7 +37,7 @@ public partial class EditExcercises : System.Web.UI.Page
         BaiTap bt = db.BaiTaps.Where(m => m.Ma == ID).FirstOrDefault();
         bt.Ten = txtTenBT.Text;
         bt.MoTa = txtMoTa.Text;
-        var Match = Regex.Match(txtHanNop.Text, "^(?<Day>\\d{1,2})/(?<Month>\\d{1,2})/(?<Year>(?:\\d{4}|\\d{2}))$");
+        var Match = Regex.Match(txtHanNop.Text, @"^(?<Day>[0-2]\d|[3][0-1])\/(?<Month>[0]\d|[1][0-2])\/(?<Year>(?:[2][01]|[1][6-9])\d{2})$");
         bt.HanNop = new DateTime(int.Parse(Match.Groups["Day"].Value), int.Parse(Match.Groups["Month"].Value), int.Parse(Match.Groups["Year"].Value));
         db.SubmitChanges();
     }

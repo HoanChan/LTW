@@ -10,17 +10,12 @@ using System.Web.UI.WebControls;
 
 public partial class GiaoVien_CreateExercises : System.Web.UI.Page
 {
+    MyContextDataContext db = new MyContextDataContext();
     public string TenLop { get; set; }
     protected void Page_Load(object sender, EventArgs e)
     {
         string ID = Request.QueryString["ID"];
-        SqlConnection cnn = new SqlConnection(ConfigurationManager.ConnectionStrings["NopBaiTapVeNhaConnectionString"].ConnectionString);
-        cnn.Open();
-        SqlCommand cmd = cnn.CreateCommand();
-        cmd.CommandText = "select * from lophoc where malop = '" + ID + "'";
-        var data = cmd.ExecuteReader();
-        data.Read();
-        TenLop = data["TenLop"].ToString();
-        cnn.Close();
+        var Data = db.LopHocs.FirstOrDefault(m => m.MaLop == ID);
+        TenLop = Data.TenLop;
     }
 }
