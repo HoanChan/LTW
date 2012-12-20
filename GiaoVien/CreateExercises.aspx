@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <b>Tạo bài tập mới cho lớp: </b>
+    <b>Tạo bài tập mới cho lớp: <% Response.Write(TenLop); %></b>
     <p>
         Tên bài tập: 
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
@@ -28,6 +28,5 @@
     <p>
         <asp:Button ID="btnCreate" runat="server" Text="Tạo bài tập" />
     </p>
-    </form>
 </asp:Content>
 

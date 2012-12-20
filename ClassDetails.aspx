@@ -6,6 +6,7 @@
     <p>Lớp: <b><% Response.Write(TenLop); %></b></p>
     <p>Giáo viên: <b><% Response.Write(GiaoVien); %></b></p>
     <p>Mô tả: <% Response.Write(MoTa); %></p>
+    <asp:HyperLink DataNavigateUrlFields="ID" DataNavigateUrlFormatString="/GiaoVien/CreateExercises.aspx?ID={0}" Text="Chi tiết" />
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Ma" DataSourceID="SqlDataSource1">
         <Columns>
             <asp:BoundField DataField="Ma" HeaderText="Mã" InsertVisible="False" ReadOnly="True" SortExpression="Ma" />
