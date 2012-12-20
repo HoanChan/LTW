@@ -4,26 +4,53 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Nộp Bài về nhà</title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
+    <link href="Content/Site.css" rel="stylesheet" />
+    <link href="Content/Menu/menu.css" rel="stylesheet" />
+    <script src="Scripts/jquery.js"></script>
+    <script src="Scripts/Menu/menu.js"></script>
+    <script src="Scripts/Menu/jquery.lavalamp.js"></script>
+    <script src="Scripts/Menu/jquery.color.js"></script>
+    <script src="Scripts/Menu/jquery.easing.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div style="float: left; width: 190px;border:1px">
-                <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1">
-                      <RootNodeStyle ImageUrl="~/Contents/Folder.png" HorizontalPadding="10px" />
-                      <ParentNodeStyle ImageUrl="~/Contents/Folder.png" HorizontalPadding="10px" />
-                      <LeafNodeStyle ImageUrl="~/Contents/Folder.png" HorizontalPadding="10px" />
-                </asp:TreeView>
-        </div>
-        <div style="float: none; margin-left: 200px">
-            <asp:SiteMapPath ID="SiteMapPath1" runat="server">
-            </asp:SiteMapPath>
-            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+    <div class="page">
+        <header>
+            <div id="title">
+                <h1>NỘP BÀI TẬP VỀ NHÀ!</h1>
+            </div>
+            <div id="menu">
+                <ul class="menu">
+                    <li><a href ="/Default.aspx"><span>Trang chủ</span></a></li>
+                    <li><a href ="#"><span>Đăng nhập</span></a></li>
+                    <li><a href="#" class="parent"><span>Sinh viên</span></a>
+                        <ul>
+                            <li><a href="#"><span>Danh sách lớp</span></a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="last"><a href="#" class="parent"><span>Giáo viên</span></a>
+                        <ul>
+                            <li><a href="#"><span>Danh sách lớp</span></a></li>
+                        </ul>                            
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <form id="form1" runat="server">
+        <section id="main">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+
             </asp:ContentPlaceHolder>
-        </div>
-    </form>
+        </section>
+        </form>
+
+        <footer>
+            <p>Bài Tập Lập trình Web - Lê Hoàn Chân - Nguyễn Hoàng Duy © 2012</p>
+        </footer>
+    </div>
 </body>
 </html>
