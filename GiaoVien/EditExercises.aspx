@@ -21,7 +21,7 @@
         <input type="submit" value="UpLoad"
     </form>
     <p>
-        <asp:Button ID="btnCreate" runat="server" Text="Cập nhật" />
+        <asp:Button ID="btnEdit" runat="server" Text="Cập nhật" />
     </p>
     </form>
 </asp:Content>
