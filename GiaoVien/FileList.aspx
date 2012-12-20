@@ -13,13 +13,13 @@
             <asp:BoundField DataField="Ma" HeaderText="Mã nộp" />
             <asp:BoundField DataField="Username" HeaderText="Sinh Viên" />
             <asp:BoundField DataField="GioNop" HeaderText="Giờ nộp" />
-            <asp:BoundField DataField="FileLuu" HeaderText="File Lưu" />
+            <asp:HyperLinkField DataNavigateUrlFields="FileLuu" DataNavigateUrlFormatString="/{0}" HeaderText="File Lưu" Text="Tải về" />
             <asp:BoundField DataField="GhiChu" HeaderText="Ghi Chú" />
-            <asp:HyperLinkField DataNavigateUrlFields="Username,MaBaiTap" DataNavigateUrlFormatString="/GiaoVien/DetailsExe.aspx?UID={0}&CID={1}" HeaderText="" Text="Chi tiết" />
+            <asp:HyperLinkField DataNavigateUrlFields="Username,MaBaiTap" DataNavigateUrlFormatString="/GiaoVien/DetailsExe.aspx?UID={0}&EID={1}" HeaderText="" Text="Chi tiết" />
         </Columns>
     </asp:GridView>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NopBaiTapVeNhaConnectionString %>" SelectCommand="SELECT * FROM [BaiNop] WHERE ([MaBaiTap] = @MaBT)">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NopBaiTapVeNhaConnectionString %>" SelectCommand="SELECT Ma, MaBaiTap, Username, GioNop, FileLuu, GhiChu FROM BaiNop WHERE (MaBaiTap = @MaBT) AND (FileLuu = (SELECT MAX(FileLuu) AS Expr1 FROM BaiNop AS BaiNop_1 WHERE (MaBaiTap = @MaBT)))">
         <SelectParameters>
             <asp:QueryStringParameter Name="MaBT" QueryStringField="ID" Type="String" />
         </SelectParameters>
