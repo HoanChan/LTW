@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <p>Danh sách bài nộp của bài tập:  </p><b><% Response.Write(TenBai); %></b> Lớp: <b><%Response.Write(TenLop);%></b> <b>(<%Response.Write(MaLop); %>)</b>
+    <p>Danh sách bài nộp của bài tập: <b><% Response.Write(TenBai); %></b> </p>
+    Lớp: <b><%Response.Write(TenLop);%></b> 
+    <b>(<%Response.Write(MaLop); %>)</b>
     <p>Danh sách sinh viên nộp bài</p>
 
     <asp:GridView runat="server" AutoGenerateColumns="False" DataKeyNames="Ma" DataSourceID="SqlDataSource1">
@@ -13,7 +15,7 @@
             <asp:BoundField DataField="GioNop" HeaderText="Giờ nộp" />
             <asp:BoundField DataField="FileLuu" HeaderText="File Lưu" />
             <asp:BoundField DataField="GhiChu" HeaderText="Ghi Chú" />
-            <asp:HyperLinkField DataNavigateUrlFields="Username" DataNavigateUrlFormatString="/GiaoVien/DetailsExe.aspx?ID={0}" HeaderText="" Text="Chi tiết" />
+            <asp:HyperLinkField DataNavigateUrlFields="Username,MaBaiTap" DataNavigateUrlFormatString="/GiaoVien/DetailsExe.aspx?UID={0}&CID={1}" HeaderText="" Text="Chi tiết" />
         </Columns>
     </asp:GridView>
 

@@ -13,9 +13,10 @@
             <asp:BoundField DataField="GhiChu" HeaderText="Ghi Chú" />
         </Columns>
     </asp:GridView>
-     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NopBaiTapVeNhaConnectionString %>" SelectCommand="SELECT * FROM [BaiNop] WHERE ([Username] = @user)">
+     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NopBaiTapVeNhaConnectionString %>" SelectCommand="SELECT * FROM [BaiNop] WHERE ([Username] = @user and [MaBaiTap] = @ex)">
         <SelectParameters>
-            <asp:QueryStringParameter Name="user" QueryStringField="ID" Type="String" />
+            <asp:QueryStringParameter Name="user" QueryStringField="UID" Type="String" />
+            <asp:QueryStringParameter Name="ex" QueryStringField="EID" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
 </asp:Content>
