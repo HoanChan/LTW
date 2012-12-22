@@ -14,13 +14,13 @@ public partial class Admin_CreateUsers : System.Web.UI.Page
     }
     protected void btnCreate_Click(object sender, EventArgs e)
     {
-        if (txtEmail.Text != "" && Regex.IsMatch(txtEmail.Text, "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})$"))
+        if (txtEmail.Text != "" && !Regex.IsMatch(txtEmail.Text, "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})$"))
         {
             lblKQ.Text = "Đề nghị nhập email cho đúng";
             return;
         }
 
-        if (txtNgaySinh.Text!="" && Regex.IsMatch(txtNgaySinh.Text, "^(?<Day>\\d{1,2})/(?<Month>\\d{1,2})/(?<Year>(?:\\d{4}|\\d{2}))$"))
+        if (txtNgaySinh.Text!="" && !Regex.IsMatch(txtNgaySinh.Text, "^(?<Day>\\d{1,2})/(?<Month>\\d{1,2})/(?<Year>(?:\\d{4}|\\d{2}))$"))
         {
             lblKQ.Text = "Đề nghị nhập ngày sinh cho đúng";
             return;

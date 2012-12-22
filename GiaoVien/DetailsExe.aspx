@@ -9,7 +9,7 @@
         <Columns>
             <asp:BoundField DataField="Ma" HeaderText="Mã nộp" />
             <asp:BoundField DataField="GioNop" HeaderText="Giờ nộp" />
-            <asp:HyperLinkField DataNavigateUrlFields="FileLuu" DataNavigateUrlFormatString="/{0}" HeaderText="File Lưu" Text="Tải về" />
+            <asp:HyperLinkField DataNavigateUrlFields="FileLuu" DataNavigateUrlFormatString="/Download.aspx?Link={0}" HeaderText="File Lưu" Text="Tải về" />
             <asp:BoundField DataField="GhiChu" HeaderText="Ghi Chú" />
         </Columns>
     </asp:GridView>

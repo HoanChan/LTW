@@ -13,7 +13,7 @@
             <asp:BoundField DataField="Ma" HeaderText="Mã nộp" />
             <asp:BoundField DataField="SV" HeaderText="Sinh Viên" />
             <asp:BoundField DataField="GioNop" HeaderText="Giờ nộp" />
-            <asp:HyperLinkField DataNavigateUrlFields="FileLuu" DataNavigateUrlFormatString="/{0}" HeaderText="File Lưu" Text="Tải về" />
+            <asp:HyperLinkField DataNavigateUrlFields="FileLuu" DataNavigateUrlFormatString="/Download.aspx?Link={0}" HeaderText="File Lưu" Text="Tải về" />
             <asp:BoundField DataField="GhiChu" HeaderText="Ghi Chú" />
             <asp:HyperLinkField DataNavigateUrlFields="Username,MaBaiTap" DataNavigateUrlFormatString="/GiaoVien/DetailsExe.aspx?UID={0}&EID={1}" HeaderText="" Text="Chi tiết" />
         </Columns>
